@@ -25,7 +25,6 @@ const Header = () => {
 
         {/* Text Section */}
         <div className="w-full lg:w-1/2 text-center lg:text-left">
-          <h1>Hii</h1>
           <p className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 mb-6 leading-tight">
             RYIT initiative by TTSDF - FOUNDATION
           </p>
