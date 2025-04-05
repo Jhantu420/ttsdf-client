@@ -73,7 +73,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center lg:order-1 space-x-8 mx-30">
-          {["Home", "About", "Contact", "Courses", "Apply-Course"].map((item, index) => (
+          {["Home", "About", "Contact", "Courses","Branches", "Apply-Course"].map((item, index) => (
             <div key={index}>
               <Link
                 to={`/${item === "Home" ? "" : item.toLowerCase()}`}
