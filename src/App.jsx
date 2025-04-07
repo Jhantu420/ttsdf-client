@@ -48,7 +48,7 @@ const App = () => {
             <Route path="/courses" element={<Courses />} />
             <Route path="/apply-course" element={<ApplyCourse />} />
             <Route path="/resetPassword/:token" element={<ResetPassword />} />
-            <Route path="generate-cirtificate" element={<Coe />} />
+            <Route path="/generate-cirtificate" element={<Coe />} />
             <Route path="/branches" element={<Branches />} />
             <Route
               path="/users-msg"
