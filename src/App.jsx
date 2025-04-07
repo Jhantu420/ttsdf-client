@@ -11,7 +11,6 @@ import Courses from "./pages/Courses";
 import ApplyCourse from "./pages/ApplyCourse";
 import PageNotFound from "./pages/PageNotFound";
 import StudentDashboard from "./pages/dashboard/StudentDashboard";
-import SuperAdminDashboard from "./pages/dashboard/SupderAdminDashboard";
 import BranchAdminDashboard from "./pages/dashboard/BranchAdminDashboard";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import { useAuth } from "./context/AppContext";
@@ -25,7 +24,7 @@ import ResetPassword from "./pages/ResetPassword";
 import ImageUploader from "./pages/super/ImageUploader";
 import CreateTeam from "./pages/super/CreateTeam";
 import UserMsg from "./pages/UserMsg";
-import Coe from "./pages/pdf/Coe";
+import Coe from "./pages/pdf/Coc";
 import Branches from "./pages/Branches";
 
 // ✅ Handle environment variables properly
@@ -87,7 +86,6 @@ const App = () => {
 
             <Route element={<ProtectedRoute allowedRoles={["super"]} />}>
               <Route path="/super" element={<SuperAdminLayout />}>
-                <Route index element={<SuperAdminDashboard />} />
                 <Route
                   path="super-create-branches"
                   element={<CreateBranch />}
