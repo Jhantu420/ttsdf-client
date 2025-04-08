@@ -65,11 +65,6 @@ const StudentList = () => {
           withCredentials: true,
         }
       );
-      // setStudents(
-      //   students.map((stu) =>
-      //     stu._id === selectedStudent._id ? selectedStudent : stu
-      //   )
-      // );
 
       // Fetch the latest data to update the state
       const response = await axios.get(`${url}/api/v1/get-all-users`, {
@@ -136,7 +131,7 @@ const StudentList = () => {
 
       <div
         className="rounded-lg overflow-x-auto overflow-y-auto 
-                h-[80vh] lg:h-[70vh] xl:h-[80vh] 2xl:h-[90vh] grid grid-cols-1 gap-4 p-4 bg-gray-100"
+                h-[100vh] grid grid-cols-1 gap-4 p-4 bg-gray-100"
       >
         {loading ? (
           <p className="text-center text-gray-600">Loading...</p>
@@ -259,34 +254,34 @@ const StudentList = () => {
                             />
                           )}
                         </td>
-                        <td className="border border-gray-300 p-2">
+                        <td className="border border-gray-300 p-2 text-sm whitespace-nowrap font-bold">
                           {student.name}
                         </td>
-                        <td className="border border-gray-300 p-2">
+                        <td className="border border-gray-300 p-2 text-sm font-bold">
                           {student.email}
                         </td>
-                        <td className="border border-gray-300 p-2">
+                        <td className="border border-gray-300 p-2 text-[13px] whitespace-nowrap font-bold">
                           {student.userId}
                         </td>
-                        <td className="border border-gray-300 p-2">
+                        <td className="border border-gray-300 p-2 text-sm font-bold">
                           {student.mobile}
                         </td>
-                        <td className="border border-gray-300 p-2">
+                        <td className="border border-gray-300 p-2 text-sm whitespace-nowrap font-bold">
                           {student.fathername}
                         </td>
-                        <td className="border border-gray-300 p-2">
+                        <td className="border border-gray-300 p-2 text-[12px] font-bold ">
                           {student.address}
                         </td>
-                        <td className="border border-gray-300 p-2">
+                        <td className="border border-gray-300 p-2 text-sm font-bold">
                           {student.dor}
                         </td>
-                        <td className="border border-gray-300 p-2">
+                        <td className="border border-gray-300 p-2 text-[12px] font-bold">
                           {student.branchName}
                         </td>
-                        <td className="border border-gray-300 p-2">
+                        <td className="border border-gray-300 p-2 text-sm font-bold">
                           {student.courseName}
                         </td>
-                        <td className="border border-gray-300 p-2 text-center">
+                        <td className="border border-gray-300 p-2 text-center font-bold">
                           <span
                             className={`px-2 py-1 rounded-full text-xs font-medium ${
                               student.activeStatus
