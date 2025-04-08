@@ -4,6 +4,7 @@ import { FiUsers, FiSettings, FiFileText, FiMenu, FiX } from "react-icons/fi";
 import { MdDashboard } from "react-icons/md";
 import { useAuth } from "../context/AppContext";
 import StudentList from "../pages/StudentList";
+import { Outlet } from "react-router-dom"; // ✅ Add this at the top
 
 const SuperAdminLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -61,33 +62,69 @@ const SuperAdminLayout = () => {
         </h1>
 
         <nav className="space-y-4">
-          <NavLink to="/super" className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl" onClick={() => setIsSidebarOpen(false)}>
+          <NavLink
+            to="dashboard"
+            className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
+            onClick={() => setIsSidebarOpen(false)}
+          >
             <MdDashboard className="text-lg" />
             <span>Dashboard</span>
           </NavLink>
-          <NavLink to="super-create-branches" className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl" onClick={() => setIsSidebarOpen(false)}>
+          <NavLink
+            to="super-create-branches"
+            className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
+            onClick={() => setIsSidebarOpen(false)}
+          >
             <FiSettings className="text-lg" />
             <span>Create Branch</span>
           </NavLink>
-          <NavLink to="super-create-branch-admin" className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl" onClick={() => setIsSidebarOpen(false)}>
+          <NavLink
+            to="super-create-branch-admin"
+            className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
+            onClick={() => setIsSidebarOpen(false)}
+          >
             <FiUsers className="text-lg" />
             <span>Create Branch Admin</span>
           </NavLink>
-          <NavLink to="create-students" className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl" onClick={() => setIsSidebarOpen(false)}>
+          <NavLink
+            to="create-students"
+            className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
+            onClick={() => setIsSidebarOpen(false)}
+          >
             <FiUsers className="text-lg" />
             <span>Register Student</span>
           </NavLink>
-          <NavLink to="super-create-courses" className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl" onClick={() => setIsSidebarOpen(false)}>
+          <NavLink
+            to="super-create-courses"
+            className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
+            onClick={() => setIsSidebarOpen(false)}
+          >
             <FiFileText className="text-lg" />
             <span>Create Course</span>
           </NavLink>
-          <NavLink to="super-upload-recent-images" className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl" onClick={() => setIsSidebarOpen(false)}>
+          <NavLink
+            to="super-upload-recent-images"
+            className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
+            onClick={() => setIsSidebarOpen(false)}
+          >
             <FiFileText className="text-lg" />
             <span>Upload Recent Image</span>
           </NavLink>
-          <NavLink to="create-team" className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl" onClick={() => setIsSidebarOpen(false)}>
+          <NavLink
+            to="create-team"
+            className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
+            onClick={() => setIsSidebarOpen(false)}
+          >
             <FiUsers className="text-lg" />
             <span>Create Team Member</span>
+          </NavLink>
+          <NavLink
+            to="generate-certificate"
+            className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            <FiUsers className="text-lg" />
+            <span>Generate Cirtificate</span>
           </NavLink>
 
           <button
@@ -101,7 +138,7 @@ const SuperAdminLayout = () => {
 
       {/* Main Content */}
       <div className="m-6">
-        <StudentList />
+        <Outlet />
       </div>
     </div>
   );
