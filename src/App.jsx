@@ -24,7 +24,7 @@ import ResetPassword from "./pages/ResetPassword";
 import ImageUploader from "./pages/super/ImageUploader";
 import CreateTeam from "./pages/super/CreateTeam";
 import UserMsg from "./pages/UserMsg";
-import Coe from "./pages/pdf/Coc";
+import Coe from "./pages/pdf/Coe";
 import Branches from "./pages/Branches";
 import StudentList from "./pages/StudentList";
 
