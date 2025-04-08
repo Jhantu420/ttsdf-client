@@ -87,6 +87,7 @@ const App = () => {
 
             <Route element={<ProtectedRoute allowedRoles={["super"]} />}>
               <Route path="/super" element={<SuperAdminLayout />}>
+              <Route index element = {<StudentList />} />
                 <Route
                   path="super-create-branches"
                   element={<CreateBranch />}
@@ -106,7 +107,6 @@ const App = () => {
                 />
                 <Route path="create-team" element={<CreateTeam />} />
                 <Route path="generate-certificate" element={<Coe />} />
-                <Route path="dashboard" element={<StudentList />} />
               </Route>
             </Route>
 
