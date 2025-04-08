@@ -33,7 +33,7 @@ const SuperAdminLayout = () => {
   }, [isSidebarOpen]);
 
   return (
-    <div className="flex md:h-[140vh] bg-red-400">
+    <div className="flex md:h-[140vh]">
       {/* Mobile toggle */}
       <button
         className="absolute top-4 left-4 p-2 bg-blue-800 text-white rounded cursor-pointer hover:bg-blue-900 transition duration-300"
