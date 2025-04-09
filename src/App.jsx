@@ -27,7 +27,8 @@ import UserMsg from "./pages/UserMsg";
 import Coe from "./pages/pdf/Coe";
 import Branches from "./pages/Branches";
 import StudentList from "./pages/StudentList";
-import UploadActivity from "./pages/super/uploadActivity";
+import UploadActivity from "./pages/super/UploadActivity";
+
 
 // ✅ Handle environment variables properly
 const googleClientId = import.meta.env?.VITE_GOOGLE_CLIENT_ID;
