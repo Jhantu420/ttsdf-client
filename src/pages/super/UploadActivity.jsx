@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-
+import { useAuth } from "../../context/AppContext";
 const UploadActivity = () => {
+  const { url } = useAuth();
   const [formData, setFormData] = useState({
     title: "",
     videoUrl: "",
@@ -27,7 +28,7 @@ const UploadActivity = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/create-activity",
+        `${url}/api/v1/create-activity`,
         formData
       );
       toast.success("Activity uploaded successfully!");
