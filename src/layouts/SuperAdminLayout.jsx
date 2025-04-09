@@ -63,7 +63,7 @@ const SuperAdminLayout = () => {
 
         <nav className="space-y-4">
           <NavLink
-            to="dashboard"
+            to=""
             className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
             onClick={() => setIsSidebarOpen(false)}
           >
@@ -111,6 +111,14 @@ const SuperAdminLayout = () => {
             <span>Upload Recent Image</span>
           </NavLink>
           <NavLink
+            to="super-upload-recent-activity"
+            className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            <FiFileText className="text-lg" />
+            <span>Upload Recent Activity</span>
+          </NavLink>
+          <NavLink
             to="create-team"
             className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
             onClick={() => setIsSidebarOpen(false)}
@@ -137,7 +145,7 @@ const SuperAdminLayout = () => {
       </div>
 
       {/* Main Content */}
-      <div className="m-6">
+      <div className="m-6 ">
         <Outlet />
       </div>
     </div>
