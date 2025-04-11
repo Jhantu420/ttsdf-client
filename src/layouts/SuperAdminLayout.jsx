@@ -48,7 +48,7 @@ const SuperAdminLayout = () => {
         ref={sidebarRef}
         className={`bg-gray-800 text-white p-5 w-72 h-full fixed z-50 
           transform transition-all duration-300 ease-in-out
-          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
+          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full "} `}
       >
         <button
           className="absolute top-4 right-4 p-2 text-white hover:bg-purple-800 rounded-full cursor-pointer"
@@ -61,7 +61,7 @@ const SuperAdminLayout = () => {
           Super Admin
         </h1>
 
-        <nav className="space-y-4">
+        <nav className="space-y-4 overflow-y-auto max-h-[calc(100vh-150px)] pr-2">
           <NavLink
             to=""
             className="flex items-center space-x-2 p-2 hover:bg-purple-800 rounded-xl"
