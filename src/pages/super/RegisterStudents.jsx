@@ -20,6 +20,7 @@ const RegisterStudents = () => {
     branchName: "",
     branchCode: "",
     courseName: "",
+    courseDuration: "",
     highestQualification: "",
     images: [],
   });
@@ -56,15 +57,24 @@ const RegisterStudents = () => {
   // Handle text input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     if (name === "branchName") {
-      // Find the selected branch
       const selectedBranch = branches.find(
         (branch) => branch.branch_name === value
       );
       setStudentData({
         ...studentData,
         branchName: value,
-        branchCode: selectedBranch ? selectedBranch.branch_code : "", // Auto-set branch code
+        branchCode: selectedBranch ? selectedBranch.branch_code : "",
+      });
+    } else if (name === "courseName") {
+      const selectedCourse = courses.find(
+        (course) => course.course_name === value
+      );
+      setStudentData({
+        ...studentData,
+        courseName: value,
+        courseDuration: selectedCourse ? selectedCourse.course_duration : "",
       });
     } else {
       setStudentData({ ...studentData, [name]: value });
@@ -136,6 +146,7 @@ const RegisterStudents = () => {
         role: "student",
         branchName: "",
         courseName: "",
+        courseDuration: "",
         images: [],
       });
       setOtp("");
@@ -288,6 +299,18 @@ const RegisterStudents = () => {
                   </option>
                 ))}
               </select>
+            </div>
+            {/* Branch Code (Auto-filled) */}
+            <div>
+              <label className="block text-md font-medium text-white">
+                Course Duration
+              </label>
+              <input
+                name="courseDuration"
+                value={studentData.courseDuration}
+                readOnly // Make it read-only since it's auto-selected
+                className="w-full p-2.5 border rounded-lg bg-gray-200 font-bold text-md"
+              />
             </div>
             {/* Upload Image */}
             <div className="col-span-1 md:col-span-2">
