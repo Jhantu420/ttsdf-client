@@ -15,6 +15,16 @@ const StudentList = () => {
   const [registeredEmail, setRegisteredEmail] = useState("");
   const { url } = useAuth();
 
+  const calculateGrade = (marks) => {
+    if (marks >= 90) return "A+";
+    if (marks >= 80) return "A";
+    if (marks >= 70) return "B+";
+    if (marks >= 60) return "B";
+    if (marks >= 50) return "C";
+    if (marks >= 40) return "D";
+    return "Fail";
+  };
+
   useEffect(() => {
     const fetchStudents = async () => {
       try {
@@ -53,7 +63,26 @@ const StudentList = () => {
   };
 
   const handleInputChange = (e) => {
-    setSelectedStudent({ ...selectedStudent, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    let updatedValue = value;
+
+    // If marks field, convert to number and calculate grade
+    if (name === "marks") {
+      const marks = parseFloat(value);
+      updatedValue = isNaN(marks) ? "" : marks;
+      const grade = isNaN(marks) ? "" : calculateGrade(marks);
+      setSelectedStudent((prev) => ({
+        ...prev,
+        [name]: updatedValue,
+        grade: grade,
+      }));
+      return;
+    }
+
+    setSelectedStudent((prev) => ({
+      ...prev,
+      [name]: updatedValue,
+    }));
   };
 
   const handleSave = async () => {
@@ -283,7 +312,7 @@ const StudentList = () => {
                         </td>
                         <td className="border border-gray-300 p-2 text-center font-bold">
                           <span
-                            className={`px-2 py-1 rounded-full text-xs font-medium ${
+                            className={`px-2 py-1 rounded-full text-xs font-medium font-bold${
                               student.activeStatus
                                 ? "bg-green-200 text-green-800"
                                 : "bg-red-200 text-red-800"
@@ -476,6 +505,32 @@ const StudentList = () => {
                 </select>
               </div>
               <div>
+                <label className="block text-sm font-medium text-white">
+                  Marks
+                </label>
+                <input
+                  type="number"
+                  name="marks"
+                  value={selectedStudent.marks || ""}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-white">
+                  Grade
+                </label>
+                <input
+                  type="text"
+                  name="grade"
+                  value={selectedStudent.grade || ""}
+                  readOnly
+                  className="w-full p-2 border border-gray-300 rounded-md bg-gray-200 text-black"
+                />
+              </div>
+
+              <div>
                 <input
                   type="text "
                   placeholder="Enter OTP"
@@ -517,3 +572,5 @@ const StudentList = () => {
 };
 
 export default StudentList;
+// here create a field for marks and grade and based on marks grade will be calculated in the bellow format and save in the database
+// Grades – 90% & Above =A+, 80% - 89% = A, 70% - 79% = B+, 60% - 69% =B, 50% - 59% =C, 40% - 49% = D, Below 40% - Fail
