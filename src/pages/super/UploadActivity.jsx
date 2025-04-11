@@ -27,10 +27,9 @@ const UploadActivity = () => {
     }
 
     try {
-      const res = await axios.post(
-        `${url}/api/v1/create-activity`,
-        formData
-      );
+      const res = await axios.post(`${url}/api/v1/create-activity`, formData, {
+        withCredentials: true,
+      });
       toast.success("Activity uploaded successfully!");
       setFormData({ title: "", videoUrl: "" });
     } catch (error) {
@@ -93,3 +92,14 @@ const UploadActivity = () => {
 };
 
 export default UploadActivity;
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/eAUkCIUt3zs?si=cQBy2CHZjNIrWTSA"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>;
